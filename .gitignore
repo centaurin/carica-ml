@@ -5,5 +5,6 @@ kaggle.json
 .env
 
 # virtual environment
+.venv
 venv
 __pycache__
