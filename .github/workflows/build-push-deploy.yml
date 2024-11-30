@@ -50,7 +50,7 @@ jobs:
         uses: docker/build-push-action@v3.2.0
         with:
           context: .
-          push: false
+          push: true
           tags: ${{ steps.extract_metadata.outputs.tags }}
           labels: ${{ steps.extract_metadata.outputs.labels }}
           cache-from: type=gha
