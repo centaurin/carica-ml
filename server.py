@@ -14,12 +14,15 @@ val_x_transform = transforms.Compose(
     [
         transforms.ToTensor(),
         transforms.Resize((256, 256), antialias=True),
+        transforms.Lambda(lambda x: x / 255),
         transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
     ]
 )
 model = models.vgg16()
 model.classifier[6] = nn.Linear(in_features=4096, out_features=18)
-model.load_state_dict(torch.load("./model.pt", weights_only=True))
+model.load_state_dict(
+    torch.load("./model.pt", weights_only=True, map_location=torch.device("cpu"))
+)
 
 
 def allowed_file(filename):
@@ -33,9 +36,9 @@ def evaluate():  # input is a list of PIL Images
         return Response("No files provided", status=400)
     pics = []
     for i in files:
-        if i.filename is not None and i.filename == '':
+        if i.filename is not None and i.filename == "":
             return Response("No files provided", status=400)
-        pics.append(val_x_transform(Image.open(i.stream).convert('RGB')))
+        pics.append(val_x_transform(Image.open(i.stream).convert("RGB")))
     pics = torch.stack(pics)
     with torch.no_grad():
         output = model(pics.float())

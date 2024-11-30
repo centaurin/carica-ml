@@ -6,6 +6,7 @@ click==8.1.7
 filelock==3.16.1
 Flask==3.1.0
 fsspec==2024.10.0
+gunicorn==23.0.0
 idna==3.10
 itsdangerous==2.2.0
 Jinja2==3.1.4
@@ -26,6 +27,7 @@ nvidia-cusparse-cu12==12.3.1.170
 nvidia-nccl-cu12==2.21.5
 nvidia-nvjitlink-cu12==12.4.127
 nvidia-nvtx-cu12==12.4.127
+packaging==24.2
 pillow==11.0.0
 python-dateutil==2.9.0.post0
 python-slugify==8.0.4
