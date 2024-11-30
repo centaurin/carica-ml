@@ -1,0 +1,8 @@
+# kaggle token
+kaggle.json
+
+# environment
+.env
+
+# virtual environment
+venv
