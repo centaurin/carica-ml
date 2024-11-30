@@ -1,2 +1,2 @@
 # carica-ml
-Machine learning model for Hackerfrost Hackathon 
+Machine learning model for HackFrost Hackathon 
