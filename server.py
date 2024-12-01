@@ -21,7 +21,7 @@ val_x_transform = transforms.Compose(
 model = models.vgg16()
 model.classifier[6] = nn.Linear(in_features=4096, out_features=18)
 model.load_state_dict(
-    torch.load("./model.pt", weights_only=True, map_location=torch.device("cpu"))
+    torch.load("./model.pt", map_location=torch.device("cpu"))
 )
 
 
